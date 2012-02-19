@@ -9,7 +9,7 @@ db_handle_t * db_handle_reattach(db_handle_t *handle,const char *dbserver_name) 
 			handle->db = mysql_init(NULL);
 			mysql_options(handle->db,MYSQL_READ_DEFAULT_FILE,handle->config);
 			mysql_options(handle->db,MYSQL_READ_DEFAULT_GROUP,handle->server[ct]);
-			if(mysql_real_connect(handle->db,NULL,handle->user,handle->pass,handle->database,NULL,0,NULL,CLIENT_MULTI_STATEMENTS) != NULL){
+			if(mysql_real_connect(handle->db,NULL,handle->user,handle->pass,handle->database,0,NULL,CLIENT_MULTI_STATEMENTS) != NULL){
 				handle->server_offset = ct;
 				return handle;
 			}
@@ -19,7 +19,7 @@ db_handle_t * db_handle_reattach(db_handle_t *handle,const char *dbserver_name) 
 			handle->db = mysql_init(NULL);
 			mysql_options(handle->db,MYSQL_READ_DEFAULT_FILE,handle->config);
 			mysql_options(handle->db,MYSQL_READ_DEFAULT_GROUP,handle->server[ct]);
-			if(mysql_real_connect(handle->db,NULL,handle->user,handle->pass,handle->database,NULL,0,NULL,CLIENT_MULTI_STATEMENTS) != NULL){
+			if(mysql_real_connect(handle->db,NULL,handle->user,handle->pass,handle->database,0,NULL,CLIENT_MULTI_STATEMENTS) != NULL){
 				handle->server_offset = ct;
 				return handle;
 			}
