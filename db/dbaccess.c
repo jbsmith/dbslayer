@@ -362,7 +362,7 @@ json_value * dbexecute(db_handle_t *dbhandle, json_value *injson, apr_pool_t *mp
 						sql_result = json_object_create(mpool);
 						json_object_add(sql_result,"SUCCESS",json_boolean_create(mpool,1));
 						json_object_add(sql_result,"AFFECTED_ROWS",json_long_create(mpool,(long)mysql_affected_rows(db)));
-+						json_object_add(sql_result,"INSERT_ID",json_long_create(mpool,(long)mysql_insert_id(db)));
+						json_object_add(sql_result,"INSERT_ID",json_long_create(mpool,(long)mysql_insert_id(db)));
  					}
 				}
 			} else { 
